@@ -6,7 +6,7 @@ GameManager::GameManager() {
 	SetGraphMode(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_COLOR);
 
 	//フルスクリーンにする
-	ChangeWindowMode(FALSE);
+	ChangeWindowMode(TRUE);
 	isInit = DxLib_Init();
 
 	//Zバッファの使用を許可
@@ -20,6 +20,9 @@ GameManager::GameManager() {
 
 //デストラクタ
 GameManager::~GameManager() {
+	delete awata;
+	delete tamura;
+
 	InitSoundMem();
 	DxLib_End();
 }
@@ -33,6 +36,12 @@ void GameManager::Run() {
 		}
 		
 		ClearDrawScreen();
+
+		currentScene->Update();
+
+		currentScene->Draw();
+
+		currentScene = currentScene->ChangeScene();
 
 		ScreenFlip();
 	}
