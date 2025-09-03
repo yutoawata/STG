@@ -20,8 +20,7 @@ GameManager::GameManager() {
 
 //デストラクタ
 GameManager::~GameManager() {
-	delete awata;
-	delete tamura;
+	delete currentScene;
 
 	InitSoundMem();
 	DxLib_End();
