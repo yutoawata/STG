@@ -17,9 +17,11 @@ void TitleScene::Draw() {
 SceneBase* TitleScene::ChangeScene() {
 	
 	if (CheckHitKey(KEY_INPUT_1)) {
+		delete this;
 		return new Awata();
 	}
 	else if (CheckHitKey(KEY_INPUT_2)) {
+		delete this;
 		return new Tamura();
 	}
 
