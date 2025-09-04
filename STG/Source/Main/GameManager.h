@@ -1,4 +1,5 @@
 #pragma once
+#include <memory>
 #include "DxLib.h"
 #include "..\Scene\TitleScene.h"
 
@@ -20,9 +21,7 @@ private:
 	static const int SCREEN_HEIGHT = 1080;	//ゲームウィンドウの縦幅
 	static const int SCREEN_COLOR = 32;		//ゲームウィンドウのカラービット
 
-	Awata* awata = new Awata();
-	Tamura* tamura = new Tamura();
-	SceneBase* currentScene = new TitleScene();
+	std::shared_ptr<SceneBase> currentScene;
 
 	//メンバ変数
 	int isInit = FALSE;					//ゲームの初期設定完了フラグ

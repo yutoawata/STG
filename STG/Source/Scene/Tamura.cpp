@@ -15,6 +15,4 @@ void Tamura::Draw() {
 
 }
 
-SceneBase* Tamura::ChangeScene() {
-	return this;
-}
+void Tamura::ChangeScene(std::shared_ptr<SceneBase>& current_scene) {}

@@ -16,12 +16,12 @@ GameManager::GameManager() {
 	//マウスカーソルの表示をON
 	SetMouseDispFlag(TRUE);
 	SetDrawScreen(DX_SCREEN_BACK);
+
+	currentScene = SceneBase::DownCast<TitleScene>();
 }
 
 //デストラクタ
 GameManager::~GameManager() {
-	delete currentScene;
-
 	InitSoundMem();
 	DxLib_End();
 }
@@ -40,7 +40,7 @@ void GameManager::Run() {
 
 		currentScene->Draw();
 
-		currentScene = currentScene->ChangeScene();
+		currentScene->ChangeScene(currentScene);
 
 		ScreenFlip();
 	}
