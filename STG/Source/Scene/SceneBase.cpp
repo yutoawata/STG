@@ -6,9 +6,6 @@ SceneBase::~SceneBase() {}
 
 void SceneBase::Update() {}
 
-
 void SceneBase::Draw() {}
 
-SceneBase* SceneBase::ChangeScene() {
-	return this;
-}
+void SceneBase::ChangeScene(std::shared_ptr<SceneBase>& current_scene) {}

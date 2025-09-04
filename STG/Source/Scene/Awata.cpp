@@ -15,6 +15,4 @@ void Awata::Draw() {
 	DrawFormatString(100, 100, GetColor(0, 0, 255), "ˆ¾“c");
 }
 
-SceneBase* Awata::ChangeScene() {
-	return this;
-}
+void Awata::ChangeScene(std::shared_ptr<SceneBase>& current_scene) {}

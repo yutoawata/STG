@@ -10,5 +10,5 @@ public:
 	void Update() override;
 	void Draw() override;
 
-	SceneBase* ChangeScene() override;
+	void ChangeScene(std::shared_ptr<SceneBase>& current_scene) override;
 };

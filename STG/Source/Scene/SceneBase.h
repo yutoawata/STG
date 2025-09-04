@@ -1,4 +1,5 @@
 #pragma once
+#include <memory>
 #include "DxLib.h"
 
 class SceneBase {
@@ -17,5 +18,13 @@ public:
 	//•`‰æˆ—
 	virtual void Draw();
 
-	virtual SceneBase* ChangeScene();
+	virtual void ChangeScene(std::shared_ptr<SceneBase>& current_scene);
+
+//protected:
+	template<class T>
+	static const std::shared_ptr<SceneBase> DownCast() {
+		std::shared_ptr<T> child = std::make_shared<T>();
+
+		return std::dynamic_pointer_cast<SceneBase>(child);
+	}
 };

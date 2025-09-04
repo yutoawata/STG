@@ -14,16 +14,12 @@ void TitleScene::Draw() {
 
 }
 
-SceneBase* TitleScene::ChangeScene() {
+void TitleScene::ChangeScene(std::shared_ptr<SceneBase>& current_scene) {
 	
 	if (CheckHitKey(KEY_INPUT_1)) {
-		delete this;
-		return new Awata();
+		current_scene = SceneBase::DownCast<Awata>();
 	}
 	else if (CheckHitKey(KEY_INPUT_2)) {
-		delete this;
-		return new Tamura();
+		current_scene = SceneBase::DownCast<Tamura>();
 	}
-
-	return this;
 }
