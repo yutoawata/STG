@@ -1,6 +1,6 @@
 #pragma once
 #include "SceneBase.h"
-#include "..\Target\TargetManager.h"
+#include "../Target/TargetManager.h"
 
 class Awata : public SceneBase {
 public:

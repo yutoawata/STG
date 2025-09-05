@@ -13,6 +13,7 @@ public:
 	void Draw();
 
 private:
+	const int modelHandle;
 	std::vector<std::shared_ptr<Target>> targetList;
 	int targetValue = 1;
 };
