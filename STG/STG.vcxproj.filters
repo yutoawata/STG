@@ -13,6 +13,9 @@
     <Filter Include="Scene">
       <UniqueIdentifier>{edc9c57e-189e-4208-aabb-320f9a8a03fa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Math">
+      <UniqueIdentifier>{37c368e1-c61f-44a3-b94e-4ea205774685}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Main\GameManager.cpp">
@@ -33,6 +36,18 @@
     <ClCompile Include="Source\Scene\TitleScene.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Target\Target.cpp">
+      <Filter>Target</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Target\TargetManager.cpp">
+      <Filter>Target</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Math\Vector2.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Math\Vector3.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Main\GameManager.h">
@@ -49,6 +64,18 @@
     </ClInclude>
     <ClInclude Include="Source\Scene\TitleScene.h">
       <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Target\Target.h">
+      <Filter>Target</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Target\TargetManager.h">
+      <Filter>Target</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Math\Vector2.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Math\Vector3.h">
+      <Filter>Math</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
