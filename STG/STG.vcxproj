@@ -137,17 +137,25 @@
   <ItemGroup>
     <ClCompile Include="Source\Main\GameManager.cpp" />
     <ClCompile Include="Source\Main\MainLoop.cpp" />
+    <ClCompile Include="Source\Math\Vector2.cpp" />
+    <ClCompile Include="Source\Math\Vector3.cpp" />
     <ClCompile Include="Source\Scene\Awata.cpp" />
     <ClCompile Include="Source\Scene\SceneBase.cpp" />
     <ClCompile Include="Source\Scene\Tamura.cpp" />
     <ClCompile Include="Source\Scene\TitleScene.cpp" />
+    <ClCompile Include="Source\Target\Target.cpp" />
+    <ClCompile Include="Source\Target\TargetManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Main\GameManager.h" />
+    <ClInclude Include="Source\Math\Vector2.h" />
+    <ClInclude Include="Source\Math\Vector3.h" />
     <ClInclude Include="Source\Scene\Awata.h" />
     <ClInclude Include="Source\Scene\SceneBase.h" />
     <ClInclude Include="Source\Scene\Tamura.h" />
     <ClInclude Include="Source\Scene\TitleScene.h" />
+    <ClInclude Include="Source\Target\Target.h" />
+    <ClInclude Include="Source\Target\TargetManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
