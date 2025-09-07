@@ -1,7 +1,7 @@
 #pragma once
 #include <memory>
 #include "DxLib.h"
-#include "..\Scene\TitleScene.h"
+#include "../Scene/TitleScene.h"
 
 class GameManager {
 	//ƒƒ“ƒoŠÖ”
