@@ -3,7 +3,9 @@
 
 class Target {
 public:
+	//コンストラクタ]
 	Target(int model_handle, int move_line_num);
+	//デストラクタ
 	~Target();
 
 	void Update();
