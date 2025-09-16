@@ -157,6 +157,10 @@
     <ClInclude Include="Source\Target\Target.h" />
     <ClInclude Include="Source\Target\TargetManager.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Source\Shader\Test_PSShader.pso" />
+    <None Include="Source\Shader\Test_VSShader.vso" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

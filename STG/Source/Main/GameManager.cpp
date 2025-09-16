@@ -5,9 +5,12 @@ GameManager::GameManager() {
 	//解像度を設定
 	SetGraphMode(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_COLOR);
 
+	// Direct3D9Ex を使用する
+	SetUseDirect3DVersion(DX_DIRECT3D_9EX);
+
 	//フルスクリーンにする
 	ChangeWindowMode(TRUE);
-	isInit = DxLib_Init();
+	isBuildError = DxLib_Init();
 
 	//Zバッファの使用を許可
 	SetUseZBuffer3D(TRUE);
@@ -15,6 +18,7 @@ GameManager::GameManager() {
 	SetWriteZBuffer3D(TRUE);
 	//マウスカーソルの表示をON
 	SetMouseDispFlag(TRUE);
+
 	SetDrawScreen(DX_SCREEN_BACK);
 
 	currentScene = SceneBase::DownCast<TitleScene>();
@@ -28,7 +32,7 @@ GameManager::~GameManager() {
 
 //ゲームループ
 void GameManager::Run() {
-	while (!ProcessMessage() && isInit != TRUE) {
+	while (!ProcessMessage() && isBuildError == FALSE) {
 
 		if (CheckHitKey(KEY_INPUT_ESCAPE)) {
 			break;

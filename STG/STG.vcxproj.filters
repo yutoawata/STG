@@ -16,6 +16,9 @@
     <Filter Include="Math">
       <UniqueIdentifier>{37c368e1-c61f-44a3-b94e-4ea205774685}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Shader">
+      <UniqueIdentifier>{cbc5c934-69e8-409a-b2d8-28ad75e9b827}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Main\GameManager.cpp">
@@ -77,5 +80,13 @@
     <ClInclude Include="Source\Math\Vector3.h">
       <Filter>Math</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Source\Shader\Test_PSShader.pso">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="Source\Shader\Test_VSShader.vso">
+      <Filter>Shader</Filter>
+    </None>
   </ItemGroup>
 </Project>
