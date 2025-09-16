@@ -14,4 +14,5 @@ public:
 
 private:
 	std::unique_ptr<TargetManager> targetManager;
+	int magician = 0;
 };

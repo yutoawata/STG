@@ -24,7 +24,9 @@ private:
 	std::shared_ptr<SceneBase> currentScene;
 
 	//メンバ変数
-	int isInit = FALSE;					//ゲームの初期設定完了フラグ
+	int pvoShaderHandle = 0;
+	int psoShaderHandle = 0;
+	int isBuildError = FALSE;					//ゲームの初期設定完了フラグ
 	/*
 		ライブラリ初期設定関数「Init()」の結果がint型で返ってくるため
 		bool型ではなく、int型にしています。
