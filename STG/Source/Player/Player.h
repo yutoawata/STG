@@ -1,5 +1,4 @@
 #pragma once
-
 #include "Dxlib.h"
 #include "../Math/Vector3.h"
 #include "Input.h"

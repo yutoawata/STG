@@ -1,6 +1,5 @@
 #pragma once
 
-
 // “ü—Í‚ðŽó‚¯•t‚¯‚é
 class Input
 {

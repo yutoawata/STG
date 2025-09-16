@@ -1,6 +1,6 @@
 #include "Player.h"
 
-//　初期化
+// 初期化
 Player::Player() {
 	speed = 0.0f;
 	posX = 0.0f;
@@ -12,12 +12,11 @@ Player::Player() {
 	isActive = false;
 }
 
-
+Player::~Player(){}
 
 void Player::Update() {
 	input.Update();
 	InputMove();
-
 }
 
 void Player::Draw() {
@@ -34,15 +33,16 @@ void Player::InputMove() {
 	if (input.IsKeyPress(KEY_INPUT_D)) vecX += 1.0f;
 
 	// 入力ベクトルをVector3化
-	Vector3 moveVec(vecX, 0 , vecZ);
+	Vector3 moveVec(vecX, 0, vecZ);
 
-	// 長さが0かチェックする
+	// 長さが0でなければ正規化
 	if (moveVec != Vector3::ZERO) {
-		// 正規化
-		moveVec = moveVec.Normalized(); // 長さを1に
+		moveVec = moveVec.Normalized(); // 長さを1にする
 	}
 
+	// 速度をかける
 	posX += moveVec.x * speed;
 	posY += moveVec.y * speed;
 	posZ += moveVec.z * speed;
 }
+
