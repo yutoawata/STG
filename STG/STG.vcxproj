@@ -135,6 +135,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Input.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Source\Main\GameManager.cpp" />
     <ClCompile Include="Source\Main\MainLoop.cpp" />
     <ClCompile Include="Source\Math\Vector2.cpp" />
@@ -147,6 +149,8 @@
     <ClCompile Include="Source\Target\TargetManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Input.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="Source\Main\GameManager.h" />
     <ClInclude Include="Source\Math\Vector2.h" />
     <ClInclude Include="Source\Math\Vector3.h" />
