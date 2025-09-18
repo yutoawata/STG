@@ -11,4 +11,5 @@ public:
 	void Draw() override;
 
 	void ChangeScene(std::shared_ptr<SceneBase>& current_scene) override;
+	std::unique_ptr<Player> player;
 };

@@ -27,16 +27,17 @@ Player::Player() {
 	speed = 0.0f;
 	posX = 0.0f;
 	posY = 0.0f;
-	posZ = 0.0f;
+	posZ = -100.0f;
 	rotationX = 0.0f;
 	rotationY = 0.0f;
 	rotationZ = 0.0f;
-	mouseSens = 0.0025f;
+	mouseSens = 0.00025f;
 	prevMousePosX = 0;
     prevMousePosY = 0;
 	mouseInited = false;
 	isActive = false;
 
+	SetCameraNearFar(0.1f, 1000.0f);
 	SetMouseDispFlag(false); // マウス非表示
 
 }
@@ -58,7 +59,8 @@ void Player::Draw() {
 void Player::InputMove() {
 	float vecX = 0.0f;
 	float vecZ = 0.0f;
-	if (input.IsKeyPress(KEY_INPUT_W)) vecZ += 1.0f;
+	if (input.IsKeyPress(KEY_INPUT_W)) 
+		vecZ += 1.0f;
 	if (input.IsKeyPress(KEY_INPUT_S)) vecZ -= 1.0f;
 	if (input.IsKeyPress(KEY_INPUT_A)) vecX -= 1.0f;
 	if (input.IsKeyPress(KEY_INPUT_D)) vecX += 1.0f;
@@ -100,8 +102,8 @@ void Player::ControlleCamera() {
 	int dy = my - cy;
 
 	// 視点回転に反映
-	rotationX += dx * mouseSens; // yaw(左右)
-	rotationY += -dy * mouseSens; // pitch(上下　方向を逆にしたいなら符号を触る) 
+	rotationX += dy * mouseSens; // yaw(左右)
+	rotationY += -dx * mouseSens; // pitch(上下　方向を逆にしたいなら符号を触る) 
 
 	// ピッチ制限
 	const float limit = 1.4f;
@@ -111,8 +113,8 @@ void Player::ControlleCamera() {
 	SetMousePoint(cx, cy);
 
 	//カメラ位置と向きを反映
-	float camrahight = 1.5f; // カメラの高さ
-	Vector3 camPos(posX, posY + camrahight, posZ);
+	float camraHight = 1.5f; // カメラの高さ
+	Vector3 camPos(posX, posY + camraHight, posZ);
 	forward = MakeForward(rotationY, rotationX); // 前を作る
 	Vector3 camTar = camPos + forward;
 
