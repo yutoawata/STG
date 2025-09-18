@@ -1,5 +1,6 @@
 #pragma once
 #include "SceneBase.h"
+#include "../Player/Player.h"
 
 class Tamura : public SceneBase {
 public:
