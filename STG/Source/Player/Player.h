@@ -1,5 +1,6 @@
 #pragma once
 #include "Dxlib.h"
+#include <numbers>
 #include "../Math/Vector3.h"
 #include "Input.h"
 
@@ -19,19 +20,23 @@ public:
 
 private:
 	void InputMove();
+	void ControlleCamera();
 
 
 	Input input;
+	Vector3 forward; // カメラの前方向
+	Vector3 right; // カメラの右方向
 	// 移動速度
 	float speed;
 	// 位置座標
-	float posX;
-	float posY;
-	float posZ;
+	float posX, posY, posZ;
 	// 回転
-	float rotationX;
-	float rotationY;
-	float rotationZ;
+	float rotationX, rotationY, rotationZ; // pitch, yaw, roll
+
+	// カメラ用
+	float mouseSens; // マウス感度
+	float prevMousePosX, prevMousePosY;
+	bool mouseInited;
 	// 生存フラグ
 	bool isActive;
 };
