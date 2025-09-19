@@ -9,10 +9,14 @@ inline float RadToDeg(float r) { return r * 180.0f / M_PI; }
     yawRad = 左右の角度(ラジアン) マウスを左右に動かしたときの回転に使う
 	pitchRad = 上下の角度(ラジアン) マウスを上下に動かしたときの回転に使う
 */
-static Vector3 MakeForward(float yawRad, float pitchRad) {
-	float cy = cosf(yawRad), sy = sinf(yawRad);
-	float cp = cosf(pitchRad), sp = sinf(pitchRad);
-	return Vector3(sy * cp, sp, cy * cp).Normalized();
+static Vector3 MakeForward(float yawRad) {
+	/*
+	* プレイヤーが向いている角度のベクトルを取得する
+	*  わかっている情報
+	* ・プレイヤーの向いている角度
+	*  必要なのは各成分の大きさ(三角関数を使う) cosf->横方向の大きさを求める sinf->縦方向の大きさを求める
+	*/
+	return Vector3(cosf(yawRad), 0, sinf(yawRad));
 }
 
 // 前方向から右方向を求める
@@ -24,12 +28,12 @@ static Vector3 MakeRight(const Vector3& forward) {
 
 // 初期化
 Player::Player() {
-	speed = 0.0f;
+	speed = 20.0f;
 	posX = 0.0f;
 	posY = 0.0f;
 	posZ = -100.0f;
 	rotationX = 0.0f;
-	rotationY = 0.0f;
+	rotationY = DX_PI / 2;
 	rotationZ = 0.0f;
 	mouseSens = 0.00025f;
 	prevMousePosX = 0;
@@ -38,7 +42,7 @@ Player::Player() {
 	isActive = false;
 
 	SetCameraNearFar(0.1f, 1000.0f);
-	SetMouseDispFlag(false); // マウス非表示
+	SetMouseDispFlag(true); // マウス非表示
 
 }
 
@@ -59,14 +63,11 @@ void Player::Draw() {
 void Player::InputMove() {
 	float vecX = 0.0f;
 	float vecZ = 0.0f;
-	if (input.IsKeyPress(KEY_INPUT_W)) 
-		vecZ += 1.0f;
+	if (input.IsKeyPress(KEY_INPUT_W)) vecZ += 1.0f;
 	if (input.IsKeyPress(KEY_INPUT_S)) vecZ -= 1.0f;
 	if (input.IsKeyPress(KEY_INPUT_A)) vecX -= 1.0f;
 	if (input.IsKeyPress(KEY_INPUT_D)) vecX += 1.0f;
 
-	// 水平成分のみ
-	forward.y = 0.0f;
 	if (forward != Vector3::ZERO) forward.Normalized();
 	right = MakeRight(forward);
 	right.Normalized();
@@ -102,7 +103,7 @@ void Player::ControlleCamera() {
 	int dy = my - cy;
 
 	// 視点回転に反映
-	rotationX += dy * mouseSens; // yaw(左右)
+	rotationX += -dy * mouseSens; // yaw(左右)
 	rotationY += -dx * mouseSens; // pitch(上下　方向を逆にしたいなら符号を触る) 
 
 	// ピッチ制限
@@ -115,8 +116,10 @@ void Player::ControlleCamera() {
 	//カメラ位置と向きを反映
 	float camraHight = 1.5f; // カメラの高さ
 	Vector3 camPos(posX, posY + camraHight, posZ);
-	forward = MakeForward(rotationY, rotationX); // 前を作る
+	forward = MakeForward(rotationY); // 前を作る
 	Vector3 camTar = camPos + forward;
+	camTar.y = sinf(rotationX);
+	DrawFormatString(0, 0,GetColor(255,255,255), "%f", camTar.y);
 
-	SetCameraPositionAndTarget_UpVecY((VECTOR)camPos, (VECTOR)camTar);
+	SetCameraPositionAndTargetAndUpVec((VECTOR)camPos, (VECTOR)camTar, VGet(0,1,0));
 }
