@@ -46,7 +46,6 @@ void TargetManager::Update() {
 
 	for (std::shared_ptr<Target> target : targetList) {
 		target->Update();
-
 		DrawLine3D(static_cast<VECTOR>(lineStart), static_cast<VECTOR>(lineEnd), GetColor(255, 0, 0));
 
 		MV1_COLL_RESULT_POLY collResult = MV1CollCheck_Line(target->modelHandle, -1, static_cast<VECTOR>(lineStart), static_cast<VECTOR>(lineEnd));
@@ -68,9 +67,6 @@ void TargetManager::Update() {
 			DrawFormatString(10, 20, color, "%d", collResult.FrameIndex);
 			DrawCircle(10, 10, 10, color);
 		}
-		
-
-		
 	}
 }
 

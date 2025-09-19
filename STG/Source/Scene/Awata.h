@@ -1,5 +1,6 @@
 #pragma once
 #include "SceneBase.h"
+#include "../Player/Player.h"
 #include "../Target/TargetManager.h"
 
 class Awata : public SceneBase {
@@ -15,4 +16,5 @@ public:
 private:
 	std::unique_ptr<TargetManager> targetManager;
 	int magician = 0;
+	std::unique_ptr<Player> player;
 };

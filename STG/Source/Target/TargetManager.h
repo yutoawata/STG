@@ -4,6 +4,7 @@
 #include "Target.h"
 
 class TargetManager {
+	friend Target;
 public:
 	TargetManager();
 	~TargetManager();

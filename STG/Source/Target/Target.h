@@ -12,8 +12,9 @@ public:
 	void Draw();
 
 	const int modelHandle;
+	const Collider shareCollider;
 private:
-
+	Collider* collider;
 	Vector3 position = Vector3::ZERO;
 	float moveSpeed = 1.0f;
 	float moveLimit = 200.0f;
