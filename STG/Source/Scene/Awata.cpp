@@ -2,11 +2,11 @@
 
 Awata::Awata()
 	: SceneBase(), targetManager(std::make_unique<TargetManager>()), player(std::make_unique<Player>()) {
-	/*
+	
 	// プログラマブルシェーダーモデル２．０が使用できない場合はエラーを表示して終了
 	if (GetValidShaderVersion() < 200)
 	{
-		isBuildError = TRUE;
+		//isBuildError = TRUE;
 	}
 	// 頂点シェーダーを読み込む
 	pvoShaderHandle = LoadVertexShader("Source/Shader/SkinMesh4_DirLightVS.vso");
@@ -19,13 +19,10 @@ Awata::Awata()
 
 	// 使用するピクセルシェーダーをセット
 	SetUsePixelShader(psoShaderHandle);
-	*/
+	
 
-	SetUseLighting(TRUE);
-	//SetGlobalAmbientLight(GetColorF(0.3f, 0.3f, 0.3f, 1.0f));
+	SetUseLighting(FALSE);
 	ChangeLightTypeDir(VGet(0.0f,0.0f,-1.0f));
-	/*SetCameraNearFar(0.1f, 1000.0f); 
-	SetCameraPositionAndTargetAndUpVec(VGet(0, 0, 200), VGet(0.0f, 0.0f, 0.0f), VGet(0.0f, 1.0f, 0.0f));*/
 }
 
 Awata::~Awata() {}

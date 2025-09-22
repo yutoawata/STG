@@ -17,4 +17,6 @@ private:
 	std::unique_ptr<TargetManager> targetManager;
 	int magician = 0;
 	std::unique_ptr<Player> player;
+	int pvoShaderHandle = 0;
+	int psoShaderHandle = 0;
 };

@@ -44,28 +44,19 @@ void TargetManager::Update() {
 
 	}
 
-	for (std::shared_ptr<Target> target : targetList) {
+	for (const std::shared_ptr<Target> target : targetList) {
 		target->Update();
+		std::unique_ptr<Collider<Target>> collider = std::make_unique<Collider<Target>>(lineStart, lineEnd);
 		DrawLine3D(static_cast<VECTOR>(lineStart), static_cast<VECTOR>(lineEnd), GetColor(255, 0, 0));
 
-		MV1_COLL_RESULT_POLY collResult = MV1CollCheck_Line(target->modelHandle, -1, static_cast<VECTOR>(lineStart), static_cast<VECTOR>(lineEnd));
-
-		unsigned int color = GetColor(255, 255, 255);
+		MV1_COLL_RESULT_POLY collResult
+			= MV1CollCheck_Line(target->COLLIDER->modelHandle,
+				-1,
+				static_cast<VECTOR>(collider->start),
+				static_cast<VECTOR>(collider->end));
 
 		if (collResult.HitFlag) {
-			switch (collResult.FrameIndex) {
-			case 2:
-				color = GetColor(255, 0, 0);
-				break;
-			case 3:
-				color = GetColor(0, 255, 0);
-				break;
-			case 4:
-				color = GetColor(0, 0, 255);
-				break;
-			}
-			DrawFormatString(10, 20, color, "%d", collResult.FrameIndex);
-			DrawCircle(10, 10, 10, color);
+			target->COLLIDER->collisionFunc(collResult);
 		}
 	}
 }

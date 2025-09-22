@@ -1,5 +1,6 @@
 #pragma once
 #include"../Math/Vector3.h"
+#include "../Collider/Collider.h"
 
 class Target {
 public:
@@ -10,11 +11,11 @@ public:
 
 	void Update();
 	void Draw();
+	static void Collision(MV1_COLL_RESULT_POLY collisionResult);
 
-	const int modelHandle;
-	const Collider shareCollider;
+	const int MODEL_HANDLE;
+	const std::unique_ptr<Collider<Target>> COLLIDER;
 private:
-	Collider* collider;
 	Vector3 position = Vector3::ZERO;
 	float moveSpeed = 1.0f;
 	float moveLimit = 200.0f;
