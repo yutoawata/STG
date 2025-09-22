@@ -19,6 +19,9 @@
     <Filter Include="Shader">
       <UniqueIdentifier>{cbc5c934-69e8-409a-b2d8-28ad75e9b827}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Collider">
+      <UniqueIdentifier>{808a4a26-9471-45bc-a180-621c49de0373}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Main\GameManager.cpp">
@@ -57,6 +60,9 @@
     <ClCompile Include="Source\Player\Player.cpp">
       <Filter>Player</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Collider\Collider.cpp">
+      <Filter>Collider</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Main\GameManager.h">
@@ -91,6 +97,9 @@
     </ClInclude>
     <ClInclude Include="Source\Player\Player.h">
       <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Collider\Collider.h">
+      <Filter>Collider</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
