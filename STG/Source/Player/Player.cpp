@@ -68,9 +68,9 @@ void Player::InputMove() {
 	if (input.IsKeyPress(KEY_INPUT_A)) vecX -= 1.0f;
 	if (input.IsKeyPress(KEY_INPUT_D)) vecX += 1.0f;
 
-	if (forward != Vector3::ZERO) forward.Normalized();
+	if (forward != Vector3::ZERO) forward = forward.Normalized();
 	right = MakeRight(forward);
-	right.Normalized();
+	right = right.Normalized();
 
 	Vector3 wish = right * vecX + forward * vecZ;
 	if (wish != Vector3::ZERO) wish = wish.Normalized();
@@ -120,6 +120,7 @@ void Player::ControlleCamera() {
 	Vector3 camTar = camPos + forward;
 	camTar.y = sinf(rotationX);
 	DrawFormatString(0, 0,GetColor(255,255,255), "%f", camTar.y);
+	DrawFormatString(0, 20,GetColor(255,255,255), "%f", camTar.x);
 
 	SetCameraPositionAndTargetAndUpVec((VECTOR)camPos, (VECTOR)camTar, VGet(0,1,0));
 }
